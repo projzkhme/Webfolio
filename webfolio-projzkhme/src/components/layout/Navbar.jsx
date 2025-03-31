@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Drawer from "../screens/Drawer";
 
 const logo = "projzkhme";
@@ -43,9 +43,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <AnimatePresence>
-        {isOpen && <Drawer toggleMenu={toggleMenu} />}
-      </AnimatePresence>
+      {isOpen && <Drawer toggleMenu={toggleMenu} />}
     </>
   );
 }

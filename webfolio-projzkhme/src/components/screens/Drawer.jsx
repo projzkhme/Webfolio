@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import UILinks from "../common/UILinks";
 
@@ -11,21 +10,15 @@ const icons = {
 };
 
 const links = [
-  { id: "home", label: "HOME", url: "/" },
-  { id: "about", label: "ABOUT", url: "/about" },
-  { id: "works", label: "WORK TIMELINE", url: "/work-timeline" },
-  { id: "projects", label: "PROJECTS", url: "/projects" },
+  { id: "home", label: "Home", url: "/" },
+  { id: "about", label: "Profile", url: "/about" },
+  { id: "works", label: "Work Timeline", url: "/work-timeline" },
+  { id: "projects", label: "Projects", url: "/projects" },
 ];
 
 function Drawer({ toggleMenu }) {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="fixed top-0 left-0 w-full h-full z-50 bg-[var(--theme-background-light)] flex flex-col items-center justify-center text-[var(--theme-text-light)]"
-    >
+    <div className="fixed top-0 left-0 w-full h-full z-50 bg-[var(--theme-background-light)] flex flex-col items-center justify-center text-[var(--theme-text-light)]">
       <nav className="absolute top-8 right-8">
         <button
           onClick={toggleMenu}
@@ -36,48 +29,36 @@ function Drawer({ toggleMenu }) {
       </nav>
 
       <div className="flex flex-col md:flex-row items-center gap-8 md:gap-20">
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center md:text-left"
-        >
+        <section className="text-center md:text-left">
           <span className="text-2xl font-bold">projzkhme</span>
           <span className="text-base block">PORTFOLIO</span>
-        </motion.section>
+        </section>
 
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-2xl"
-        >
+        <section className="text-2xl">
           <ul>
             {links.map((link, index) => (
-              <motion.li
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                className="font-bold hover:opacity-75 hover:underline hover:underline-offset-4"
-              >
-                <a href={link.url}>{link.label}</a>
-              </motion.li>
+              <li key={index}>
+                <motion.a
+                  href={link.url}
+                  target="_self"
+                  rel="noopener noreferrer"
+                  whileHover={{ opacity: 0.75 }}
+                  whileTap={{ opacity: 0.75 }}
+                  className={`transition-all duration-300`}
+                >
+                  <span className="font-bold">{link.label.toUpperCase()}</span>
+                </motion.a>
+              </li>
             ))}
           </ul>
-        </motion.section>
+        </section>
 
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="flex flex-col gap-3"
-        >
+        <section className="flex flex-col gap-3">
           <span className="text-base">LINKS</span>
           <UILinks className="invert" />
-        </motion.section>
+        </section>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
