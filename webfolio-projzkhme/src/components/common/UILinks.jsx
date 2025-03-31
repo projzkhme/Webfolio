@@ -21,7 +21,7 @@ const links = [
   },
 ];
 
-function UILinks() {
+function UILinks({ className = "" }) {
   return (
     <div className="flex flex-row items-center gap-3">
       {links.map((link, index) => (
@@ -32,9 +32,13 @@ function UILinks() {
           rel="noopener noreferrer"
           whileHover={{ opacity: 0.75 }}
           whileTap={{ opacity: 0.75 }}
-          className="transition-all duration-300"
+          className={`w-[1.5rem] h-[1.5rem] transition-all duration-300 ${className}`}
         >
-          <img src={link.icon} alt={link.label} className="hover:opacity-75" />
+          <img
+            src={link.icon}
+            alt={link.label}
+            className="w-full h-full hover:opacity-75"
+          />
         </motion.a>
       ))}
     </div>

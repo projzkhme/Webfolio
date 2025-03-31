@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import UILinks from "../common/UILinks";
 
 const icons = {
   close: {
@@ -7,6 +8,25 @@ const icons = {
     path: "/close.svg",
   },
 };
+
+const links = [
+  {
+    label: "HOME",
+    url: "/",
+  },
+  {
+    label: "ABOUT",
+    url: "/about",
+  },
+  {
+    label: "WORK EXPERIENCE",
+    url: "/work-experience",
+  },
+  {
+    label: "PROJECTS",
+    url: "/projects",
+  },
+];
 
 // Generate 14 columns for the blinders effect
 const columns = Array.from({ length: 14 });
@@ -35,8 +55,8 @@ function Drawer({ toggleMenu }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ delay: 0.7, duration: 0.3 }}
-        className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-[--theme-text-light]"
+        transition={{ delay: 0.7 }}
+        className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-(--theme-text-light)"
       >
         <nav className="absolute top-8 right-8 w-full flex flex-row-reverse justify-between items-center">
           <div className="cursor-pointer w-10 h-10" onClick={toggleMenu}>
@@ -47,6 +67,37 @@ function Drawer({ toggleMenu }) {
             />
           </div>
         </nav>
+        <div className="flex items-start gap-50">
+          <section className="flex flex-col items-center">
+            <span className="text-2xl font-bold">projzkhme</span>
+            <span className="text-base">PORTFOLIO</span>
+          </section>
+
+          <section className="text-3xl">
+            <ul>
+              {links.map((link, index) => (
+                <li>
+                  <motion.a
+                    key={index}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ opacity: 0.75 }}
+                    whileTap={{ opacity: 0.75 }}
+                    className={`transition-all duration-300`}
+                  >
+                    <span className="font-bold">{link.label}</span>
+                  </motion.a>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="flex flex-col gap-3">
+            <span className="text-base">LINKS</span>
+            <UILinks className="invert" />
+          </section>
+        </div>
       </motion.div>
     </div>
   );
