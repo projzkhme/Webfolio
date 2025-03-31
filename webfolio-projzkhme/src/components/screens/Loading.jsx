@@ -19,7 +19,7 @@ function Loading() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 bg-[var(--theme-background-black)] flex flex-col justify-center items-center">
+    <div className="fixed inset-0 z-50 flex flex-col justify-center items-center bg-[var(--theme-background-black)]">
       <div className="p-4 transition-transform duration-500 ease-in-out text-base">
         {percentage} %
       </div>

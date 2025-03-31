@@ -1,25 +1,7 @@
+import UILinks from "../common/UILinks";
+
 const name = "Kristian Harrel Zuniga";
 const roles = ["Developer", "UI / UX Designer", "Editor"];
-const links = [
-  {
-    label: "Email",
-    description: "Mail to",
-    ref: "mailto:projzkhrrel@gmail.com",
-    icon: "/email.svg",
-  },
-  {
-    label: "LinkedIn",
-    description: "LinkedIn Profile",
-    ref: "https://www.linkedin.com/in/kristian-harrel-zuniga/",
-    icon: "/linkedin.svg",
-  },
-  {
-    label: "GitHub",
-    description: "GitHub Profile",
-    ref: "https://github.com/projzkhme",
-    icon: "/github.svg",
-  },
-];
 
 function Introduction() {
   return (
@@ -36,18 +18,7 @@ function Introduction() {
           </div>
         </div>
 
-        <div className="flex flex-row items-center gap-3">
-          {links.map((link, index) => (
-            <a
-              key={index}
-              href={link.ref}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src={link.icon} alt={link.label} />
-            </a>
-          ))}
-        </div>
+        <UILinks />
       </div>
     </div>
   );
