@@ -27,39 +27,3 @@ body {
   background: var(--theme-background-dark);
   color: var(--theme-text-dark);
 }
-
-/* User Interface Effects */
-.fade-on-hover {
-  @apply hover:opacity-50 transition duration-300;
-}
-
-.shrink-on-hover:hover {
-  transform: scale(0.875); /* Shrinks to 80% of original size */
-  transition: transform 0.3s ease-in-out;
-}
-
-@keyframes spinY {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
-}
-
-.spin-y-axis {
-  animation: spinY 2s linear infinite;
-}
-
-@keyframes glitch {
-  0% { text-shadow: 2px 2px var(--theme-accent-secondary) -2px -2px var(--theme-accent-primary); transform: translate(0, 0); }
-  20% { text-shadow: -2px -2px var(--theme-accent-secondary), 2px 2px var(--theme-accent-primary); transform: translate(-2px, 2px); }
-  40% { text-shadow: 2px -2px var(--theme-accent-secondary), -2px 2px var(--theme-accent-primary); transform: translate(2px, -2px); }
-  60% { text-shadow: -2px 2px var(--var(--theme-accent-secondary)me-accent-secondary), 2px -2px var(--theme-accent-primary); transform: translate(-2px, -2px); }
-  80% { text-shadow: 2px 2px var(--theme-accent-secondary), -2px -2px var(--theme-accent-primary); transform: translate(2px, 2px); }
-  100% { text-shadow: 0 0 var(--theme-accent-secondary), 0 0 var(--theme-accent-primary); transform: translate(0, 0); }
-}
-
-.glitch:hover {
-  animation: glitch 0.3s infinite;
-}

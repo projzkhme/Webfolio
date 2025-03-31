@@ -43,7 +43,6 @@ function Introduction() {
               href={link.ref}
               target="_blank"
               rel="noopener noreferrer"
-              className="fade-on-hover"
             >
               <img src={link.icon} alt={link.label} />
             </a>
