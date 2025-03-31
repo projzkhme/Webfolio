@@ -1,70 +1,65 @@
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --theme-background-light: #FFFFFF;
+  --theme-background-dark: #171717;
+  --theme-background-black: #000000;
+  --theme-text-light: #171717;
+  --theme-text-dark: #FFFFFF;
+  --theme-primary: #333333;
+  --theme-secondary: #FFFFFF;
+  --theme-accent-primary: #C2FF02;
+  --theme-accent-secondary: #7D00C2;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  font-family: 'Montserrat', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  min-width: 20rem;
   min-height: 100vh;
+
+  background: var(--theme-background-dark);
+  color: var(--theme-text-dark);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* User Interface Effects */
+.fade-on-hover {
+  @apply hover:opacity-50 transition duration-300;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.shrink-on-hover:hover {
+  transform: scale(0.875); /* Shrinks to 80% of original size */
+  transition: transform 0.3s ease-in-out;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@keyframes spinY {
+  0% {
+    transform: rotateY(0deg);
   }
-  a:hover {
-    color: #747bff;
+  100% {
+    transform: rotateY(360deg);
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+.spin-y-axis {
+  animation: spinY 2s linear infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px var(--theme-accent-secondary) -2px -2px var(--theme-accent-primary); transform: translate(0, 0); }
+  20% { text-shadow: -2px -2px var(--theme-accent-secondary), 2px 2px var(--theme-accent-primary); transform: translate(-2px, 2px); }
+  40% { text-shadow: 2px -2px var(--theme-accent-secondary), -2px 2px var(--theme-accent-primary); transform: translate(2px, -2px); }
+  60% { text-shadow: -2px 2px var(--var(--theme-accent-secondary)me-accent-secondary), 2px -2px var(--theme-accent-primary); transform: translate(-2px, -2px); }
+  80% { text-shadow: 2px 2px var(--theme-accent-secondary), -2px -2px var(--theme-accent-primary); transform: translate(2px, 2px); }
+  100% { text-shadow: 0 0 var(--theme-accent-secondary), 0 0 var(--theme-accent-primary); transform: translate(0, 0); }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s infinite;
 }
