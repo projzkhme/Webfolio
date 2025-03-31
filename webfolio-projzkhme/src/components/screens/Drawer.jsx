@@ -11,18 +11,22 @@ const icons = {
 
 const links = [
   {
+    id: "home",
     label: "HOME",
     url: "/",
   },
   {
+    id: "about",
     label: "ABOUT",
     url: "/about",
   },
   {
-    label: "WORK EXPERIENCE",
-    url: "/work-experience",
+    id: "works",
+    label: "WORK TIMELINE",
+    url: "/work-timeline",
   },
   {
+    id: "projects",
     label: "PROJECTS",
     url: "/projects",
   },
@@ -47,7 +51,7 @@ function Drawer({ toggleMenu }) {
               ease: "easeInOut",
             }}
             className="h-full flex-1 bg-[var(--theme-background-light)] origin-top"
-          />
+          ></motion.div>
         ))}
       </div>
 
@@ -55,7 +59,7 @@ function Drawer({ toggleMenu }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ delay: 0.7 }}
+        transition={{ duration: 0.3, delay: 0.4 }} // Delayed to match blinders
         className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-(--theme-text-light)"
       >
         <nav className="absolute top-8 right-8 w-full flex flex-row-reverse justify-between items-center">
@@ -67,36 +71,50 @@ function Drawer({ toggleMenu }) {
             />
           </div>
         </nav>
+
         <div className="flex items-start gap-50">
-          <section className="flex flex-col items-center">
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }} // Sync with blinders
+            className="flex flex-col items-center"
+          >
             <span className="text-2xl font-bold">projzkhme</span>
             <span className="text-base">PORTFOLIO</span>
-          </section>
+          </motion.section>
 
-          <section className="text-3xl">
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }} // Sync with blinders
+            className="text-3xl"
+          >
             <ul>
               {links.map((link, index) => (
-                <li>
-                  <motion.a
-                    key={index}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ opacity: 0.75 }}
-                    whileTap={{ opacity: 0.75 }}
-                    className={`transition-all duration-300`}
-                  >
-                    <span className="font-bold">{link.label}</span>
-                  </motion.a>
-                </li>
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }} // Staggered reveal
+                  id={link.id}
+                >
+                  <a href={link.url} className="font-bold hover:opacity-75">
+                    {link.label}
+                  </a>
+                </motion.li>
               ))}
             </ul>
-          </section>
+          </motion.section>
 
-          <section className="flex flex-col gap-3">
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }} // Delayed reveal
+            className="flex flex-col gap-3"
+          >
             <span className="text-base">LINKS</span>
             <UILinks className="invert" />
-          </section>
+          </motion.section>
         </div>
       </motion.div>
     </div>

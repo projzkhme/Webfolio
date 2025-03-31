@@ -1,9 +1,12 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import UIBtnScrollDown from "./components/common/UIBtnScrollDown";
-import Introduction from "./components/sections/Introduction";
-import Loading from "./components/screens/Loading";
 import Navbar from "./components/layout/Navbar";
+import Loading from "./components/screens/Loading";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import WorkTimeline from "./pages/WorkTimeline";
+import Projects from "./pages/Projects";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,12 +34,14 @@ function App() {
             <Loading />
           </motion.div>
         ) : (
-          <motion.div
-            key="content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-          ></motion.div>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/work-timeline" element={<WorkTimeline />} />
+              <Route path="/projects" element={<Projects />} />
+            </Routes>
+          </Router>
         )}
       </AnimatePresence>
     </>
