@@ -36,10 +36,10 @@ function Navbar() {
       >
         <a
           href="/"
-          className="text-base font-bold cursor-pointer transition-all duration-300 hover:opacity-75"
+          className="cursor-pointer transition-all duration-300 hover:opacity-75"
           aria-label="Home"
         >
-          <span className="font-bold">{logo}</span>
+          <span className="text-sm font-bold">{logo}</span>
         </a>
         <button
           className="cursor-pointer w-10 h-10 hover:opacity-75"

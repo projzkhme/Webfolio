@@ -56,7 +56,7 @@ function UICarousel({ className = "", items = [] }) {
       <section className="flex flex-row-reverse gap-5">
         <button
           onClick={() => scroll("next")}
-          className={`cursor-pointer hover:opacity-75 ${
+          className={`text-sm cursor-pointer hover:opacity-75 ${
             isAtEnd ? "opacity-50 cursor-not-allowed" : ""
           }`}
           disabled={isAtEnd}
@@ -65,7 +65,7 @@ function UICarousel({ className = "", items = [] }) {
         </button>
         <button
           onClick={() => scroll("prev")}
-          className={`cursor-pointer hover:opacity-75 ${
+          className={`text-sm cursor-pointer hover:opacity-75 ${
             isAtStart ? "opacity-50 cursor-not-allowed" : ""
           }`}
           disabled={isAtStart}

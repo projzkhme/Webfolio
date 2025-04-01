@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import Content from "../components/layout/Content";
 
 const logo = "projzkhme";
 
 function Profile() {
+  useEffect(() => {
+    document.title = "PROFILE | Projzkhme";
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: -100 }} // Initial state: hidden and slightly above
@@ -25,11 +30,11 @@ function Profile() {
         />
 
         <article className="w-[50rem] py-24 flex flex-row items-center justify-between self-center space-x-24">
-          <span className="text-2xl font-bold" aria-label="Project logo">
+          <span className="text-xl font-bold" aria-label="Project logo">
             {logo}
           </span>
 
-          <section className="text-base flex flex-col space-y-3">
+          <section className="text-sm flex flex-col space-y-3">
             <h2>ABOUT ME</h2>
             <p>
               I am a developer with experience in software engineering, web

@@ -38,7 +38,7 @@ function Contact() {
             className="transition-all duration-300"
             aria-label={`Email me at ${contactInfo.email}`} // Added aria-label for screen readers
           >
-            <span className="text-base">{contactInfo.email}</span>
+            <span className="text-sm">{contactInfo.email}</span>
           </motion.a>
         </div>
       </motion.div>

@@ -43,7 +43,7 @@ function WorkInformation({ information, onClose }) {
 
             <button
               onClick={onClose}
-              className="flex flex-row items-center space-x-10 cursor-pointer hover:opacity-75"
+              className="flex flex-row items-center space-x-3 cursor-pointer hover:opacity-75"
               aria-label="Close work information"
             >
               <img
@@ -53,7 +53,7 @@ function WorkInformation({ information, onClose }) {
                 height="24"
                 aria-hidden="true" // Hide the image from screen readers
               />
-              <span className="text-base">RETURN</span>
+              <span className="text-sm">RETURN</span>
             </button>
           </div>
         </header>
@@ -62,12 +62,12 @@ function WorkInformation({ information, onClose }) {
           <article className="flex flex-col">
             <p
               id="work-timeline-description"
-              className="text-base text-justify"
+              className="text-sm text-justify"
             >
               {desc}
             </p>
             {tasks.length > 0 && (
-              <ul className="pt-8 pl-8 list-disc">
+              <ul className="pt-8 pl-8 text-sm list-disc">
                 {tasks.map((task, index) => (
                   <li key={index}>{task}</li>
                 ))}

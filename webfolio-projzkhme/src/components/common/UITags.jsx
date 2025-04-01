@@ -5,7 +5,7 @@ function UITags({ className = "", items, selectedItem, onClick }) {
         <div
           key={index}
           onClick={() => onClick(item)}
-          className={`min-w-[4rem] p-2 ring-1 text-center text-base cursor-pointer hover:bg-[var(--theme-secondary)] hover:text-[var(--theme-text-light)] duration-300 transition ease-in-out ${
+          className={`min-w-[4rem] p-2 ring-1 text-center text-sm cursor-pointer hover:bg-[var(--theme-secondary)] hover:text-[var(--theme-text-light)] duration-300 transition ease-in-out ${
             item === selectedItem
               ? "bg-[var(--theme-secondary)] text-[var(--theme-text-light)]"
               : ""

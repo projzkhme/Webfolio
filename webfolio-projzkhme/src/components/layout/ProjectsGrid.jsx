@@ -18,10 +18,10 @@ function ProjectsGrid({ className = "", projects }) {
           </div>
 
           <section className="flex flex-col">
-            <span className="text-base font-bold whitespace-nowrap overflow-hidden text-ellipsis inline-block max-w-[15rem]">
+            <span className="text-sm font-bold whitespace-nowrap overflow-hidden text-ellipsis inline-block max-w-[15rem]">
               {project.title}
             </span>
-            <span className="text-sm">{project.date}</span>
+            <span className="text-xs">{project.date}</span>
           </section>
         </div>
       ))}

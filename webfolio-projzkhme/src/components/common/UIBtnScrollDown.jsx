@@ -14,7 +14,7 @@ function UIBtnScrollDown({ className = "", onClick }) {
       transition={{ duration: 0.4, ease: "easeOut" }}
       onClick={onClick}
     >
-      <span className="text-base">{icon.label.toUpperCase()}</span>
+      <span className="text-sm">{icon.label.toUpperCase()}</span>
       <motion.img
         src={icon.path}
         alt={icon.description}

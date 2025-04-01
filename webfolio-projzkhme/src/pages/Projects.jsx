@@ -42,6 +42,10 @@ function Projects() {
     Object.keys(projects)[0]
   );
 
+  useEffect(() => {
+    document.title = "PROJECTS | Projzkhme";
+  }, []);
+
   // When the category changes, scroll the user to the top of the section
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to top on category change

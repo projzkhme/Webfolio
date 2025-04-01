@@ -21,7 +21,7 @@ function UIBtnScrollUp({ className = "", onClick }) {
         animate={{ rotateY: 360 }}
         transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
       />
-      <span className="text-base">{icon.label.toUpperCase()}</span>
+      <span className="text-sm">{icon.label.toUpperCase()}</span>
     </motion.div>
   );
 }

@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Content from "../components/layout/Content";
 import WorkExperienceList from "../components/layout/WorkExperienceList";
 
 function WorkTimeline() {
+  useEffect(() => {
+    document.title = "WORK TIMELINE | Projzkhme";
+  }, []);
+
   return (
     <Content>
       <header className="text-2xl px-24" aria-labelledby="work-timeline-header">
