@@ -23,7 +23,7 @@ function Home() {
       if (direction === "down" && prev < sections.length - 1) {
         return prev + 1;
       } else if (direction === "up" && prev > 0) {
-        return 0; // Directly go to the first section
+        return prev - 1; // Move to the previous section
       }
       return prev;
     });
@@ -41,7 +41,7 @@ function Home() {
   };
 
   const handleScrollToFirst = () => {
-    handleScroll("up"); // Now this directly scrolls to the first section
+    setCurrentSection(0); // Scroll to the first section directly
   };
 
   const SectionComponent = sections[currentSection];
