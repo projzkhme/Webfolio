@@ -11,7 +11,7 @@ const icons = {
 
 const links = [
   { id: "home", label: "Home", url: "/" },
-  { id: "about", label: "Profile", url: "/about" },
+  { id: "profile", label: "Profile", url: "/profile" },
   { id: "works", label: "Work Timeline", url: "/work-timeline" },
   { id: "projects", label: "Projects", url: "/projects" },
 ];
