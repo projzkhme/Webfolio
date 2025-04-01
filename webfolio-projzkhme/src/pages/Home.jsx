@@ -12,6 +12,7 @@ function Home() {
   const [currentSection, setCurrentSection] = useState(0);
   const [scrollDirection, setScrollDirection] = useState("down");
   const isScrolling = useRef(false); // Ref to handle scroll lock
+  const startTouchY = useRef(0); // Ref to store the initial touch position
 
   const handleScroll = useCallback((direction) => {
     if (isScrolling.current) return; // Prevent multiple triggers during scroll
@@ -46,6 +47,22 @@ function Home() {
 
   const SectionComponent = sections[currentSection];
 
+  const handleTouchStart = (e) => {
+    startTouchY.current = e.touches[0].clientY; // Capture starting touch position
+  };
+
+  const handleTouchMove = (e) => {
+    if (!startTouchY.current) return; // Ensure there's a starting touch position
+
+    const endTouchY = e.touches[0].clientY;
+    const direction = endTouchY - startTouchY.current;
+
+    if (Math.abs(direction) > 30) {
+      handleScroll(direction < 0 ? "down" : "up"); // Determine scroll direction
+      startTouchY.current = 0; // Reset touch position after scroll
+    }
+  };
+
   return (
     <div
       onWheel={(e) => {
@@ -53,6 +70,8 @@ function Home() {
           handleScroll(e.deltaY > 0 ? "down" : "up");
         }
       }}
+      onTouchStart={handleTouchStart} // Handle touch start event
+      onTouchMove={handleTouchMove} // Handle touch move event
       className="fixed inset-0 overflow-hidden"
       aria-live="polite" // Announce section changes
     >
