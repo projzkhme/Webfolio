@@ -21,7 +21,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed w-full z-50 p-8 flex justify-between items-center">
+      <nav className="sticky top-0 w-full z-50 p-8 flex justify-between items-center">
         <div className="text-base font-bold cursor-pointer">
           <motion.a
             href="/"
@@ -29,18 +29,21 @@ export default function Navbar() {
             rel="noopener noreferrer"
             whileHover={{ opacity: 0.75 }}
             whileTap={{ opacity: 0.75 }}
-            className={`transition-all duration-300`}
+            className="transition-all duration-300"
           >
             <span className="font-bold">{logo}</span>
           </motion.a>
         </div>
-        <div className="cursor-pointer w-10 h-10" onClick={toggleMenu}>
+        <button
+          className="cursor-pointer w-10 h-10 hover:opacity-75"
+          onClick={toggleMenu}
+        >
           <img
             src={icons.menu.path}
             alt={icons.menu.description}
-            className="w-full h-full hover:opacity-75"
+            className="w-full h-full"
           />
-        </div>
+        </button>
       </nav>
 
       {isOpen && <Drawer toggleMenu={toggleMenu} />}

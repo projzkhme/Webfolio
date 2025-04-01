@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function UIBtnScrollDown() {
+function UIBtnScrollDown({ className = "" }) {
   const icon = {
     label: "Scroll Up",
     description: "Scroll Up Icon",
@@ -15,7 +15,7 @@ function UIBtnScrollDown() {
     >
       <div className="p-8 flex flex-col items-center gap-5 cursor-pointer">
         <motion.img
-          className="w-[4rem] h-[4rem]"
+          className={`w-[4rem] h-[4rem] ${className}`}
           src={icon.path}
           alt={icon.description}
           animate={{ rotateY: 360 }}

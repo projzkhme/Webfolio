@@ -28,9 +28,9 @@ function Drawer({ toggleMenu }) {
         </button>
       </nav>
 
-      <div className="flex flex-col md:flex-row items-center gap-8 md:gap-20">
-        <section className="text-center md:text-left">
-          <span className="text-2xl font-bold">projzkhme</span>
+      <div className="flex flex-row items-center gap-20">
+        <section className="text-center">
+          <span className="text-xl font-bold">projzkhme</span>
           <span className="text-base block">PORTFOLIO</span>
         </section>
 

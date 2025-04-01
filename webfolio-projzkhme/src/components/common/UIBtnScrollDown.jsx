@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function UIBtnScrollDown() {
+function UIBtnScrollDown({ className = "" }) {
   const icon = {
     label: "Scroll Down",
     description: "Scroll Down Icon",
@@ -9,7 +9,7 @@ function UIBtnScrollDown() {
 
   return (
     <motion.div
-      className="fixed bottom-0 flex flex-row"
+      className={`fixed bottom-0 flex flex-row ${className}`}
       whileHover={{ y: 5, scale: 0.95 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
