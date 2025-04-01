@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import UILinks from "../common/UILinks";
 
@@ -17,9 +18,17 @@ const links = [
 ];
 
 function Drawer({ toggleMenu }) {
+  // Disable scroll when Drawer is open
+  useEffect(() => {
+    document.body.style.overflow = "hidden"; // Disable scroll
+    return () => {
+      document.body.style.overflow = "auto"; // Re-enable scroll when Drawer is closed
+    };
+  }, []);
+
   return (
-    <div className="fixed top-0 left-0 w-full h-full z-50 bg-[var(--theme-background-light)] flex flex-col items-center justify-center text-[var(--theme-text-light)]">
-      <nav className="absolute top-8 right-8">
+    <div className="fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center bg-[var(--theme-background-light)] text-[var(--theme-text-light)]">
+      <nav className="absolute top-4 right-4">
         <button
           onClick={toggleMenu}
           className="w-10 h-10 cursor-pointer hover:opacity-75"
