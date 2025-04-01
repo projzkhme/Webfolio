@@ -17,7 +17,7 @@ function Profile() {
       aria-labelledby="profile-heading" // Added for better accessibility
     >
       <Content>
-        <header className="text-2xl px-24" id="profile-heading">
+        <header className="text-xl md:text-2xl px-8 md:px-24" id="profile-heading">
           <h1>PROFILE</h1>
         </header>
 
@@ -29,12 +29,15 @@ function Profile() {
           aria-hidden="true" // This is just for decorative purposes, no need for screen readers to read it
         />
 
-        <article className="w-[50rem] py-24 flex flex-row items-center justify-between self-center space-x-24">
-          <span className="text-xl font-bold" aria-label="Project logo">
+        <article className="w-[20rem] py-16 flex flex-col items-center justify-between self-center space-y-16 md:w-[40rem] md:flex-row md:space-x-24 lg:w-[50rem]">
+          <span
+            className="text-base md:text-xl font-bold"
+            aria-label="Project logo"
+          >
             {logo}
           </span>
 
-          <section className="text-sm flex flex-col space-y-3">
+          <section className="text-xs md:text-sm flex flex-col space-y-3">
             <h2>ABOUT ME</h2>
             <p>
               I am a developer with experience in software engineering, web

@@ -10,7 +10,7 @@ const services = [
 function Services() {
   return (
     <div className="flex flex-col items-start space-y-10">
-      <span className="text-2xl" aria-labelledby="services-title">
+      <span className="text-xl md:text-2xl" aria-labelledby="services-title">
         WHAT I DO
       </span>
 

@@ -66,20 +66,20 @@ function WorkExperienceList({ className = "" }) {
                   onClick={() => handleClick(item)}
                 >
                   <header className="px-4 flex flex-col">
-                    <span className="text-sm">{end}</span>
-                    <span className="text-sm">{month}</span>
+                    <span className="text-xs md:text-sm">{end}</span>
+                    <span className="text-xs md:text-sm">{month}</span>
                   </header>
 
                   <h3
                     id={`experience-${index}`}
-                    className="w-[48rem] px-4 text-sm text-ellipsis overflow-hidden whitespace-nowrap block max-w-full"
+                    className="w-[48rem] px-4 text-xs md:text-sm text-ellipsis overflow-hidden whitespace-nowrap block max-w-full"
                   >
                     {company.toUpperCase()}
                   </h3>
 
-                  <div className="flex flex-col">
-                    <p className="text-sm">{pos}</p>
-                    <p className="text-sm">{desc}</p>
+                  <div className="sr-only flex flex-col lg:not-sr-only">
+                    <p className="text-xs md:text-sm">{pos}</p>
+                    <p className="text-xs md:text-sm">{desc}</p>
                   </div>
 
                   <div className="absolute bottom-0 left-0 w-full h-[1px] bg-transparent group-hover:bg-[var(--theme-accent-primary)] transition-all duration-900 ease-in-out transform origin-left scale-x-0 group-hover:scale-x-100"></div>

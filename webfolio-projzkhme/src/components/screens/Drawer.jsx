@@ -53,14 +53,14 @@ function Drawer({ toggleMenu }) {
       </nav>
 
       <motion.div
-        className="flex flex-row items-center gap-20"
+        className="flex flex-col items-center gap-20 md:flex-row"
         initial={{ y: -50 }} // Start off-screen
         animate={{ y: 0 }} // Slide in
         transition={{ duration: 0.8 }}
       >
         <section className="text-center">
-          <span className="text-xl font-bold">projzkhme</span>
-          <span className="text-sm block">PORTFOLIO</span>
+          <span className="text-base md:text-xl font-bold">projzkhme</span>
+          <span className="text-xs md:text-sm block">PORTFOLIO</span>
         </section>
 
         <ul>
@@ -75,7 +75,7 @@ function Drawer({ toggleMenu }) {
                 className="transition-all duration-300"
                 aria-label={link.label} // Added aria-label for better accessibility
               >
-                <span className="text-2xl font-bold hover:underline hover:underline-offset-4 transition-all duration-300">
+                <span className="text-xl md:text-2xl font-bold hover:underline hover:underline-offset-4 transition-all duration-300">
                   {link.label.toUpperCase()}
                 </span>
               </motion.a>

@@ -38,7 +38,7 @@ function UICarousel({ className = "", items = [] }) {
   }, [items.length]); // Dependency changed to items.length to prevent unnecessary effect re-runs
 
   return (
-    <div className={`w-[64rem] flex flex-col gap-3 ${className}`}>
+    <div className={`w-[20rem] flex flex-col gap-3 ${className} md:w-[42.5rem] lg:w-[64rem]`}>
       <section
         ref={carouselRef}
         className="flex flex-row gap-5 overflow-x-hidden"
@@ -48,7 +48,7 @@ function UICarousel({ className = "", items = [] }) {
             key={item.id || item} // Use item.id if available, else fallback to item
             className="min-w-[20rem] h-[22.5rem] p-4 bg-[var(--theme-primary)]"
           >
-            <span className="text-xl">{item}</span>
+            <span className="text-base md:text-xl">{item}</span>
           </div>
         ))}
       </section>

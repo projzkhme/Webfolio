@@ -53,7 +53,7 @@ function Projects() {
 
   return (
     <Content>
-      <header className="text-2xl px-24" aria-labelledby="projects-header">
+      <header className="text-xl md:text-2xl px-8 md:px-24" aria-labelledby="projects-header">
         <motion.h1
           id="projects-header"
           initial={{ opacity: 0, y: -50 }} // Start off-screen
@@ -64,7 +64,7 @@ function Projects() {
         </motion.h1>
       </header>
 
-      <section className="px-24" aria-labelledby="projects-section">
+      <section className="px-8 md:px-24" aria-labelledby="projects-section">
         <motion.div
           className="flex flex-col space-y-10"
           initial={{ opacity: 0 }} // Initially hidden

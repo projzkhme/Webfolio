@@ -27,7 +27,7 @@ function Contact() {
         transition={{ delay: 0.6, duration: 0.6 }}
         className="h-full flex flex-col justify-center items-center space-y-3"
       >
-        <span>Want to work together? Email me at:</span>
+        <span className="text-sm">Want to work together? Email me at:</span>
         <div className="px-4 py-2 bg-[var(--theme-accent-primary)]">
           <motion.a
             href={contactInfo.ref}

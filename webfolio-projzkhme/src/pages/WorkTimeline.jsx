@@ -10,7 +10,7 @@ function WorkTimeline() {
 
   return (
     <Content>
-      <header className="text-2xl px-24" aria-labelledby="work-timeline-header">
+      <header className="text-xl md:text-2xl px-8 md:px-24" aria-labelledby="work-timeline-header">
         <motion.h1
           id="work-timeline-header"
           initial={{ opacity: 0, y: -50 }} // Start off-screen
@@ -21,7 +21,7 @@ function WorkTimeline() {
         </motion.h1>
       </header>
 
-      <section className="px-24" aria-labelledby="work-timeline-section">
+      <section className="px-8 md:px-24" aria-labelledby="work-timeline-section">
         <motion.div
           initial={{ opacity: 0 }} // Initially hidden
           animate={{ opacity: 1 }} // Fade in
