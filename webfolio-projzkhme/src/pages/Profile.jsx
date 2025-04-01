@@ -11,7 +11,7 @@ function Profile() {
 
       <div className="h-[22.5rem] bg-[var(--theme-accent-primary)] bottom-0 left-0 w-full" />
 
-      <article className="flex flex-row items-center justify-between w-[50rem] py-24 self-center space-x-24">
+      <article className="w-[50rem] py-24 flex flex-row items-center justify-between self-center space-x-24">
         <span className="text-2xl font-bold">{logo}</span>
 
         <section className="text-base flex flex-col space-y-3">
