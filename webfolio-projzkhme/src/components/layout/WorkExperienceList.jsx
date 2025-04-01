@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo } from "react";
+import { AnimatePresence } from "framer-motion";
 import WorkInformation from "../screens/WorkInformation";
 
 const items = [
@@ -89,12 +90,14 @@ function WorkExperienceList({ className = "" }) {
         </ul>
       </section>
 
-      {selectedExperienceMemo && (
-        <WorkInformation
-          information={selectedExperienceMemo}
-          onClose={() => setSelectedExperience(null)}
-        />
-      )}
+      <AnimatePresence>
+        {selectedExperienceMemo && (
+          <WorkInformation
+            information={selectedExperienceMemo}
+            onClose={() => setSelectedExperience(null)}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }

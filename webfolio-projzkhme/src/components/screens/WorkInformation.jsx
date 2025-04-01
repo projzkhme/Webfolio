@@ -1,4 +1,5 @@
 import { useCallback } from "react";
+import { motion } from "framer-motion";
 import Content from "../layout/Content";
 
 const icons = {
@@ -17,7 +18,11 @@ function WorkInformation({ information, onClose }) {
   }, [onClose]);
 
   return (
-    <div
+    <motion.div
+      initial={{ x: "-100%" }} // Start off-screen to the left
+      animate={{ x: 0 }} // Slide in to position
+      exit={{ x: "-100%" }} // Slide out to the left when closing
+      transition={{ duration: 0.6, ease: "easeInOut" }} // Smooth transition
       className="fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center bg-[var(--theme-background-black)] text-[var(--theme-text-dark)]"
       role="dialog"
       aria-labelledby="work-timeline-header"
@@ -69,7 +74,7 @@ function WorkInformation({ information, onClose }) {
           </article>
         </section>
       </Content>
-    </div>
+    </motion.div>
   );
 }
 

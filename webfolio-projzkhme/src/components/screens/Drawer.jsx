@@ -27,7 +27,13 @@ function Drawer({ toggleMenu }) {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center bg-[var(--theme-background-light)] text-[var(--theme-text-light)]">
+    <motion.div
+      className="fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center bg-[var(--theme-background-light)] text-[var(--theme-text-light)]"
+      initial={{ opacity: 0 }} // Start with opacity 0
+      animate={{ opacity: 1 }} // Fade in
+      exit={{ opacity: 0 }} // Fade out
+      transition={{ duration: 0.8 }} // Smooth transition over 0.8 seconds
+    >
       <nav className="absolute top-4 right-4">
         <button
           onClick={toggleMenu}
@@ -37,7 +43,12 @@ function Drawer({ toggleMenu }) {
         </button>
       </nav>
 
-      <div className="flex flex-row items-center gap-20">
+      <motion.div
+        className="flex flex-row items-center gap-20"
+        initial={{ y: -50 }} // Start off-screen
+        animate={{ y: 0 }} // Slide in
+        transition={{ duration: 0.8 }}
+      >
         <section className="text-center">
           <span className="text-xl font-bold">projzkhme</span>
           <span className="text-base block">PORTFOLIO</span>
@@ -66,8 +77,8 @@ function Drawer({ toggleMenu }) {
           <span className="text-base">LINKS</span>
           <ProfileLinks className="invert" />
         </section>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

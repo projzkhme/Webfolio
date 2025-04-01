@@ -10,9 +10,9 @@ const sections = [Introduction, Services, Contact];
 
 function Home() {
   const [currentSection, setCurrentSection] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState("down");
   const isScrolling = useRef(false); // Ref to handle scroll lock
 
-  // Handle scrolling triggered by the wheel event or the buttons
   const handleScroll = useCallback((direction) => {
     if (isScrolling.current) return; // Prevent multiple triggers
 
@@ -20,6 +20,8 @@ function Home() {
     setTimeout(() => {
       isScrolling.current = false;
     }, 500); // Adjust delay as needed
+
+    setScrollDirection(direction); // Update scroll direction
 
     setCurrentSection((prev) => {
       if (direction === "down" && prev < sections.length - 1) {
@@ -32,16 +34,13 @@ function Home() {
   }, []);
 
   const handleScrollToNext = () => {
-    setCurrentSection((prev) => {
-      if (prev < sections.length - 1) {
-        return prev + 1;
-      }
-      return prev; // Prevent scrolling past the last section
-    });
+    setScrollDirection("down");
+    setCurrentSection((prev) => (prev < sections.length - 1 ? prev + 1 : prev));
   };
 
   const handleScrollToFirst = () => {
-    setCurrentSection(0); // Scroll to the first section
+    setScrollDirection("up");
+    setCurrentSection(0);
   };
 
   const SectionComponent = sections[currentSection];
@@ -50,7 +49,6 @@ function Home() {
     <div
       onWheel={(e) => {
         if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-          // Focus on vertical scroll only
           handleScroll(e.deltaY > 0 ? "down" : "up");
         }
       }}
@@ -59,9 +57,9 @@ function Home() {
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSection}
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: scrollDirection === "down" ? 50 : -50 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -50 }}
+          exit={{ opacity: 0, y: scrollDirection === "down" ? -50 : 50 }}
           transition={{ duration: 0.5 }}
           className="w-full h-full flex flex-col items-center justify-center"
         >
@@ -70,14 +68,14 @@ function Home() {
           {currentSection === 0 && (
             <UIBtnScrollDown
               className="absolute bottom-0 left-0 mb-4 ml-4"
-              onClick={handleScrollToNext} // Scroll to the next section
+              onClick={handleScrollToNext}
             />
           )}
 
           {currentSection === sections.length - 1 && (
             <UIBtnScrollUp
               className="absolute bottom-0 right-0 mb-4 mr-4"
-              onClick={handleScrollToFirst} // Scroll to the first section
+              onClick={handleScrollToFirst}
             />
           )}
         </motion.div>
