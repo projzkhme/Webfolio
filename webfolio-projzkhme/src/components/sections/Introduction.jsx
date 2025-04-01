@@ -8,8 +8,8 @@ function Introduction() {
     <div className="flex flex-col text-right">
       <span className="text-2xl">{name}</span>
       <div className="flex flex-col opacity-75">
-        {roles.map((role, index) => (
-          <span key={index} className="text-xl">
+        {roles.map((role) => (
+          <span key={role} className="text-xl">
             {role}
           </span>
         ))}

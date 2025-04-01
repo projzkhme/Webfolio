@@ -36,15 +36,15 @@ function Drawer({ toggleMenu }) {
 
         <section className="text-2xl">
           <ul>
-            {links.map((link, index) => (
-              <li key={index}>
+            {links.map((link) => (
+              <li key={link.id}>
                 <motion.a
                   href={link.url}
                   target="_self"
                   rel="noopener noreferrer"
                   whileHover={{ opacity: 0.75 }}
                   whileTap={{ opacity: 0.75 }}
-                  className={`transition-all duration-300`}
+                  className="transition-all duration-300"
                 >
                   <span className="font-bold">{link.label.toUpperCase()}</span>
                 </motion.a>

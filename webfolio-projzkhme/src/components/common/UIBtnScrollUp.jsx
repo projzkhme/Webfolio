@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function UIBtnScrollDown({ className = "" }) {
+function UIBtnScrollUp({ className = "", onClick }) {
   const icon = {
     label: "Scroll Up",
     description: "Scroll Up Icon",
@@ -9,22 +9,21 @@ function UIBtnScrollDown({ className = "" }) {
 
   return (
     <motion.div
-      className="fixed bottom-0 flex flex-row"
+      className={`fixed bottom-0 flex flex-col items-center gap-5 p-8 cursor-pointer ${className}`}
       whileHover={{ y: -5, scale: 0.95 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
+      onClick={onClick} // Added onClick here
     >
-      <div className="p-8 flex flex-col items-center gap-5 cursor-pointer">
-        <motion.img
-          className={`w-[4rem] h-[4rem] ${className}`}
-          src={icon.path}
-          alt={icon.description}
-          animate={{ rotateY: 360 }}
-          transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-        />
-        <span className="text-base">{icon.label.toUpperCase()}</span>
-      </div>
+      <motion.img
+        src={icon.path}
+        alt={icon.description}
+        className="w-[4rem] h-[4rem]"
+        animate={{ rotateY: 360 }}
+        transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+      />
+      <span className="text-base">{icon.label.toUpperCase()}</span>
     </motion.div>
   );
 }
 
-export default UIBtnScrollDown;
+export default UIBtnScrollUp;
