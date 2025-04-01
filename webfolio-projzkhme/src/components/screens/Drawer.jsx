@@ -38,7 +38,7 @@ function Drawer({ toggleMenu }) {
       exit={{ opacity: 0 }} // Fade out
       transition={{ duration: 0.8 }} // Smooth transition over 0.8 seconds
     >
-      <nav className="absolute top-4 right-4">
+      <nav className="absolute top-4 right-8">
         <button
           onClick={handleClose}
           aria-label={icons.close.label}

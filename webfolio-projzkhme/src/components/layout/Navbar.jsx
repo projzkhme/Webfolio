@@ -30,7 +30,7 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`sticky top-0 w-full z-50 p-4 flex justify-between items-center transition-all duration-300 ${
+        className={`sticky top-0 w-full z-50 px-8 py-4 flex justify-between items-center transition-all duration-300 ${
           isScrolled ? "bg-[var(--theme-background-dark)]" : "bg-transparent"
         }`}
       >
