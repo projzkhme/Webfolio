@@ -1,8 +1,10 @@
+import Content from "../components/layout/Content";
+
 const logo = "projzkhme";
 
 function Profile() {
   return (
-    <div className="flex flex-col space-y-6 py-24 w-full h-full relative">
+    <Content>
       <header className="text-2xl px-24">
         <h1>PROFILE</h1>
       </header>
@@ -27,7 +29,7 @@ function Profile() {
           </p>
         </section>
       </article>
-    </div>
+    </Content>
   );
 }
 

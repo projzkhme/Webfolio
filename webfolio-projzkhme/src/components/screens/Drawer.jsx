@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import UILinks from "../common/UILinks";
+import ProfileLinks from "../layout/ProfileLinks";
 
 const icons = {
   close: {
@@ -64,7 +64,7 @@ function Drawer({ toggleMenu }) {
 
         <section className="flex flex-col gap-3">
           <span className="text-base">LINKS</span>
-          <UILinks className="invert" />
+          <ProfileLinks className="invert" />
         </section>
       </div>
     </div>

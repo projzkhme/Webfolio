@@ -21,7 +21,7 @@ const links = [
   },
 ];
 
-function UILinks({ className = "" }) {
+function ProfileLinks({ className = "" }) {
   return (
     <div className="flex flex-row items-center gap-3">
       {links.map((link) => (
@@ -41,4 +41,4 @@ function UILinks({ className = "" }) {
   );
 }
 
-export default UILinks;
+export default ProfileLinks;

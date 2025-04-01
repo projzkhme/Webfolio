@@ -1,4 +1,4 @@
-import UILinks from "../common/UILinks";
+import ProfileLinks from "../layout/ProfileLinks";
 
 const name = "Kristian Harrel Zuniga";
 const roles = ["Developer", "UI / UX Designer", "Editor"];
@@ -15,7 +15,7 @@ function Introduction() {
         ))}
       </div>
 
-      <UILinks />
+      <ProfileLinks />
     </div>
   );
 }
