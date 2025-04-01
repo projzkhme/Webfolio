@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { motion } from "framer-motion";
 import Content from "../layout/Content";
 
@@ -13,10 +12,6 @@ const icons = {
 function WorkInformation({ information, onClose }) {
   const { start, end, company, pos, desc, tasks } = information;
 
-  const handleClose = useCallback(() => {
-    onClose();
-  }, [onClose]);
-
   return (
     <motion.div
       initial={{ x: "-100%" }} // Start off-screen to the left
@@ -26,6 +21,7 @@ function WorkInformation({ information, onClose }) {
       className="fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center bg-[var(--theme-background-black)] text-[var(--theme-text-dark)]"
       role="dialog"
       aria-labelledby="work-timeline-header"
+      aria-describedby="work-timeline-description"
       aria-modal="true"
     >
       <Content>
@@ -46,15 +42,16 @@ function WorkInformation({ information, onClose }) {
             </div>
 
             <button
-              onClick={handleClose}
+              onClick={onClose}
               className="flex flex-row items-center space-x-10 cursor-pointer hover:opacity-75"
               aria-label="Close work information"
             >
               <img
                 src={icons.close.path}
-                alt="Close icon"
+                alt={icons.close.description}
                 width="24"
                 height="24"
+                aria-hidden="true" // Hide the image from screen readers
               />
               <span className="text-base">RETURN</span>
             </button>
@@ -63,7 +60,12 @@ function WorkInformation({ information, onClose }) {
 
         <section className="px-32 py-4">
           <article className="flex flex-col">
-            <p className="text-base text-justify">{desc}</p>
+            <p
+              id="work-timeline-description"
+              className="text-base text-justify"
+            >
+              {desc}
+            </p>
             {tasks.length > 0 && (
               <ul className="pt-8 pl-8 list-disc">
                 {tasks.map((task, index) => (

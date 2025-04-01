@@ -12,7 +12,7 @@ function UIBtnScrollUp({ className = "", onClick }) {
       className={`fixed bottom-0 flex flex-col items-center gap-5 p-8 cursor-pointer ${className}`}
       whileHover={{ y: -5, scale: 0.95 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      onClick={onClick} // Added onClick here
+      onClick={onClick}
     >
       <motion.img
         src={icon.path}

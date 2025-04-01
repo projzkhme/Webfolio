@@ -14,33 +14,34 @@ function Home() {
   const isScrolling = useRef(false); // Ref to handle scroll lock
 
   const handleScroll = useCallback((direction) => {
-    if (isScrolling.current) return; // Prevent multiple triggers
+    if (isScrolling.current) return; // Prevent multiple triggers during scroll
 
     isScrolling.current = true;
-    setTimeout(() => {
-      isScrolling.current = false;
-    }, 500); // Adjust delay as needed
-
     setScrollDirection(direction); // Update scroll direction
 
     setCurrentSection((prev) => {
       if (direction === "down" && prev < sections.length - 1) {
         return prev + 1;
       } else if (direction === "up" && prev > 0) {
-        return prev - 1;
+        return 0; // Directly go to the first section
       }
       return prev;
     });
+
+    // Lock scroll for a brief moment after each scroll action
+    setTimeout(() => {
+      isScrolling.current = false;
+    }, 500); // Adjust delay as needed
   }, []);
 
   const handleScrollToNext = () => {
-    setScrollDirection("down");
-    setCurrentSection((prev) => (prev < sections.length - 1 ? prev + 1 : prev));
+    if (currentSection < sections.length - 1) {
+      handleScroll("down");
+    }
   };
 
   const handleScrollToFirst = () => {
-    setScrollDirection("up");
-    setCurrentSection(0);
+    handleScroll("up"); // Now this directly scrolls to the first section
   };
 
   const SectionComponent = sections[currentSection];
@@ -53,6 +54,7 @@ function Home() {
         }
       }}
       className="fixed inset-0 overflow-hidden"
+      aria-live="polite" // Announce section changes
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -69,6 +71,7 @@ function Home() {
             <UIBtnScrollDown
               className="absolute bottom-0 left-0 mb-4 ml-4"
               onClick={handleScrollToNext}
+              aria-label="Scroll down to next section"
             />
           )}
 
@@ -76,6 +79,7 @@ function Home() {
             <UIBtnScrollUp
               className="absolute bottom-0 right-0 mb-4 mr-4"
               onClick={handleScrollToFirst}
+              aria-label="Scroll up to first section"
             />
           )}
         </motion.div>

@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import Drawer from "../screens/Drawer";
 
 const logo = "projzkhme";
@@ -8,7 +9,7 @@ const menuIcon = {
   path: "/menu.svg",
 };
 
-export default function Navbar() {
+function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -19,17 +20,11 @@ export default function Navbar() {
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -42,12 +37,14 @@ export default function Navbar() {
         <a
           href="/"
           className="text-base font-bold cursor-pointer transition-all duration-300 hover:opacity-75"
+          aria-label="Home"
         >
           <span className="font-bold">{logo}</span>
         </a>
         <button
           className="cursor-pointer w-10 h-10 hover:opacity-75"
           onClick={toggleMenu}
+          aria-label="Toggle Menu"
         >
           <img
             src={menuIcon.path}
@@ -57,7 +54,11 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {isOpen && <Drawer toggleMenu={toggleMenu} />}
+      <AnimatePresence>
+        {isOpen && <Drawer toggleMenu={toggleMenu} />}
+      </AnimatePresence>
     </>
   );
 }
+
+export default Navbar;

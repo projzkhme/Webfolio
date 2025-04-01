@@ -20,6 +20,7 @@ function Contact() {
         animate={{ height: "0%" }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
       />
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -35,6 +36,7 @@ function Contact() {
             whileHover={{ opacity: 0.75 }}
             whileTap={{ opacity: 0.75 }}
             className="transition-all duration-300"
+            aria-label={`Email me at ${contactInfo.email}`} // Added aria-label for screen readers
           >
             <span className="text-base">{contactInfo.email}</span>
           </motion.a>

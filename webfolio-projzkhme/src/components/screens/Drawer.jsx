@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import ProfileLinks from "../layout/ProfileLinks";
 
@@ -26,6 +26,10 @@ function Drawer({ toggleMenu }) {
     };
   }, []);
 
+  const handleClose = useCallback(() => {
+    toggleMenu();
+  }, [toggleMenu]);
+
   return (
     <motion.div
       className="fixed top-0 left-0 w-full h-full z-50 flex flex-col items-center justify-center bg-[var(--theme-background-light)] text-[var(--theme-text-light)]"
@@ -36,10 +40,15 @@ function Drawer({ toggleMenu }) {
     >
       <nav className="absolute top-4 right-4">
         <button
-          onClick={toggleMenu}
+          onClick={handleClose}
+          aria-label={icons.close.label}
           className="w-10 h-10 cursor-pointer hover:opacity-75"
         >
-          <img src={icons.close.path} alt={icons.close.description} />
+          <img
+            src={icons.close.path}
+            alt={icons.close.description}
+            aria-hidden="true" // Hide image from screen readers
+          />
         </button>
       </nav>
 
@@ -65,6 +74,7 @@ function Drawer({ toggleMenu }) {
                   whileHover={{ opacity: 0.75 }}
                   whileTap={{ opacity: 0.75 }}
                   className="transition-all duration-300"
+                  aria-label={link.label} // Added aria-label for better accessibility
                 >
                   <span className="font-bold">{link.label.toUpperCase()}</span>
                 </motion.a>
