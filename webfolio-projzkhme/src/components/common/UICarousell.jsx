@@ -37,6 +37,32 @@ function UICarousel({ className = "", items = [] }) {
     return () => container.removeEventListener("scroll", handleScroll);
   }, [items.length]); // Dependency changed to items.length to prevent unnecessary effect re-runs
 
+  useEffect(() => {
+    const container = carouselRef.current;
+    if (!container) return;
+
+    let startX = 0;
+    let scrollLeft = 0;
+
+    const handleTouchStart = (e) => {
+      startX = e.touches[0].clientX;
+      scrollLeft = container.scrollLeft;
+    };
+
+    const handleTouchMove = (e) => {
+      const deltaX = e.touches[0].clientX - startX;
+      container.scrollLeft = scrollLeft - deltaX;
+    };
+
+    container.addEventListener("touchstart", handleTouchStart);
+    container.addEventListener("touchmove", handleTouchMove);
+
+    return () => {
+      container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, []);
+
   return (
     <div className={`w-[20rem] flex flex-col gap-3 ${className} md:w-[42.5rem] lg:w-[64rem]`}>
       <section
