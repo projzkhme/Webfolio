@@ -6,24 +6,24 @@ import UITags from "../components/common/UITags";
 
 const projects = {
   "Websites": [
-    {
-      image: "",
+    { 
+      image: "/thumbnail-projzkhme.svg",
       title: "Projzkhme Portfolio (My Portolio)",
-      link: "",
+      link: "/",
       date: "2025.04",
     },
   ],
   "Web Designs": [
     {
-      image: "",
-      title: "Projzkhme Portfolio Figma Design (My Portolio)",
-      link: "",
+      image: "/thumbnail-projzkhme.svg",
+      title: "Projzkhme Portfolio Web Design",
+      link: "https://pin.it/72RFwuCMR",
       date: "2025.03",
     },
     {
-      image: "",
-      title: "Saint Louis University Triage System Figma Design",
-      link: "",
+      image: "/thumbnail-triage.svg",
+      title: "Saint Louis University Triage System Web Design",
+      link: "https://pin.it/5rXITcJcN",
       date: "2022.06",
     },
   ],
