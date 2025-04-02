@@ -5,15 +5,7 @@ import ProjectsGrid from "../components/layout/ProjectsGrid";
 import UITags from "../components/common/UITags";
 
 const projects = {
-  "Web Application": [
-    {
-      image: "",
-      title: "Saint Louis University Triage System",
-      link: "",
-      date: "2022.06",
-    },
-  ],
-  Websites: [
+  "Websites": [
     {
       image: "",
       title: "Projzkhme Portfolio (My Portolio)",
@@ -21,7 +13,7 @@ const projects = {
       date: "2025.04",
     },
   ],
-  "UI / UX Designs": [
+  "Web Designs": [
     {
       image: "",
       title: "Projzkhme Portfolio Figma Design (My Portolio)",

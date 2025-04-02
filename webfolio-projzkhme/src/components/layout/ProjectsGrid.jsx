@@ -1,7 +1,7 @@
 function ProjectsGrid({ className = "", projects }) {
   return (
     <div
-      className={`grid grid-cols-1 md:grid-cols-[repeat(auto-fill,15rem)] gap-3 ${className}`}
+      className={`px-4 grid grid-cols-1 md:grid-cols-[repeat(auto-fill,15rem)] gap-3 ${className}`}
     >
       {projects.map((project, index) => (
         <div
