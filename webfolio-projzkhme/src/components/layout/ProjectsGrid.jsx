@@ -9,11 +9,11 @@ function ProjectsGrid({ className = "", projects }) {
           className="flex flex-col space-y-3 cursor-pointer hover:opacity-75 duration-300 ease-in-out"
           onClick={() => window.open(project.link, "_blank")}
         >
-          <div className="w-full h-[15.25rem] bg-[var(--theme-primary)]">
+          <div className="w-full h-[22.25rem] md:h-[15.25rem] bg-[var(--theme-primary)]">
             <img
               src={project.image}
               alt={project.title}
-              className="w-fit h-fit"
+              className="w-full h-full object-cover"
             />
           </div>
 
