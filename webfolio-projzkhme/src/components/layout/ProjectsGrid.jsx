@@ -9,11 +9,15 @@ function ProjectsGrid({ className = "", projects }) {
           className="flex flex-col space-y-3 cursor-pointer hover:opacity-75 duration-300 ease-in-out"
           onClick={() => window.open(project.link, "_blank")}
         >
-          <div className="w-full h-[15.25rem] bg-[var(--theme-primary)]">
+          <div className="w-full h-[15.25rem] bg-[var(--theme-primary)] relative flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-6 h-6 border-4 border-gray-200 border-t-transparent rounded-full animate-spin"></div>
+            </div>
             <img
               src={project.image}
               alt={project.title}
               className="w-full h-full object-cover"
+              onLoad={(e) => e.target.previousSibling.remove()}
             />
           </div>
 
