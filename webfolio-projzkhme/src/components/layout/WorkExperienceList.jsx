@@ -28,7 +28,7 @@ const items = [
     desc: "Interned at the Data Privacy Office, where I designed, developed, and tested the triage system used by students, employees, and visitors of the university.",
     tasks: [
       "Conducted user research through client interviews and surveys.",
-      "Designed intuitive UI/UX prototypes in Figma, incorporating client feedback to ensure alignment with project goals. Then, translated these designs into functional software components, adhering to client specifications and industry best practices.",
+      "Created intuitive UI/UX prototypes in Figma based on client feedback, then developed responsive components in React with Tailwind, aligning with specifications and best practices.",
     ],
   },
 ];

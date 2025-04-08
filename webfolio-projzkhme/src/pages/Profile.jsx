@@ -45,10 +45,10 @@ function Profile() {
           <section className="text-xs md:text-sm flex flex-col space-y-3">
             <h2>ABOUT ME</h2>
             <p>
-              I am a developer with experience in software engineering, web
-              development, and web design. Skilled in UI/UX design, content
-              management systems (CMS), Python programming, scripting, and
-              automation.
+              Experienced developer specializing in software engineering, web
+              development, and web design. Skilled in UI/UX design, with
+              expertise in crafting intuitive user experiences through
+              wireframes and high-fidelity mockups.
             </p>
             <p>
               Beyond coding, I enjoy playing games, reading and writing novels,
